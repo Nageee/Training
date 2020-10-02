@@ -14,7 +14,7 @@ namespace OrderMgmtSystem.Controllers
         [Route("Courier/CourierName")]
         public string Get()
         {
-            return "Reshmi & Nagee, both are super star.";
+            return "Reshmi & Nagee, both are super star. Sandeep is our guru!";
 
         }
     }
