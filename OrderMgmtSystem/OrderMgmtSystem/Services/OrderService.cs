@@ -14,10 +14,10 @@ namespace OrderMgmtSystem.Services
         {
         }
 
-        public int PlaceOrder(OrderDetails ordertdetials)
+        public int PlaceOrder(OrderDetails orderdetails)
         {
 
-            csvHelper.UpdateFile(ordertdetials);
+            csvHelper.UpdateFile(orderdetails);
 
          
 
