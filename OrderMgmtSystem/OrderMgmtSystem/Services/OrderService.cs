@@ -17,7 +17,9 @@ namespace OrderMgmtSystem.Services
         public int PlaceOrder(OrderDetails orderdetails)
         {
 
-            csvHelper.UpdateFile(orderdetails);
+            csvHelper.ReadFile();
+
+           // csvHelper.UpdateFile(orderdetails);
 
          
 

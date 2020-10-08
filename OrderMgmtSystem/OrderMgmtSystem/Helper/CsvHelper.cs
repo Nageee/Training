@@ -15,17 +15,23 @@ namespace OrderMgmtSystem.Helper
         {
             // open CSV file
 
-
-            using (var reader = new StreamReader(Environment.CurrentDirectory + @"/Data/OrderInfoData.csv"))//defining StreamReader
+            using (var reader = new StreamReader(Environment.CurrentDirectory + @"/Data/OrderInfoData.csv")) //defining StreamReader
             {
 
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(';');
+                    var values = line.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (var value in values)
+                    {
+                        Console.WriteLine(value);
+                    }
 
 
+                    
                 }
+
             }
         }
 
@@ -36,8 +42,11 @@ namespace OrderMgmtSystem.Helper
         {
             using (var writer = new StreamWriter(Environment.CurrentDirectory + @"/Data/OrderInfoData.csv", true))//append data
             {
+                writer.Write(Environment.NewLine);
                 writer.Write(orderdetails.CustomerFirstName + "," + orderdetails.CustomerLastName + "," + orderdetails.AddressDetails + "," + orderdetails.ItemNumber + "," + orderdetails.ItemType + "," + orderdetails.PhoneNumber);
                 writer.Close();
+
+                
             }
         }
 

@@ -13,7 +13,7 @@ namespace OrderMgmtSystem.Entities
         public string ItemType { get; set; }
         public int OrderId { get; set; }
 
-        public OrderDetails(string _CustomerFirstName, string _CustomerLastName, string _AddressDetails, int _PhoneNumber, string _ItemNumber, string _ItemType)
+       /* public OrderDetails(string _CustomerFirstName, string _CustomerLastName, string _AddressDetails, int _PhoneNumber, string _ItemNumber, string _ItemType)
         {
             this.CustomerFirstName = _CustomerFirstName;
             this.CustomerLastName = _CustomerLastName;
@@ -26,5 +26,6 @@ namespace OrderMgmtSystem.Entities
                 this.OrderId = ++IdCount;
             }
         }
+       */
     }
 }
