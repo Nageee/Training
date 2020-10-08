@@ -9,6 +9,17 @@ namespace OrderMgmtSystem.Entities
         public string VehicleType { get; set; }
         public int ETA { get; set; }
         public int ItemNumber { get; set; }
-     
+
+
+        public CourierDetails(int _CourierID, string _CourierName, double _Price, string _VehicleType, int _ETA, int _ItemNumber)
+        {
+            this.CourierID = _CourierID;
+            this.CourierName = _CourierName;
+            this.Price = _Price;
+            this.VehicleType = _VehicleType;
+            this.ETA = _ETA;
+            this.ItemNumber = _ItemNumber;
+
+        }
     }
 }
