@@ -1,5 +1,7 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.IO;
+using System.Linq;
 using OrderMgmtSystem.Entities;
 
 namespace OrderMgmtSystem.Helper
@@ -28,11 +30,51 @@ namespace OrderMgmtSystem.Helper
                         Console.WriteLine(value);
                     }
 
-
-                    
                 }
 
             }
+        }
+
+        //get Order Id
+        internal static int GetOrderId()
+        {
+            var line = "";
+            int counter = 0;
+            int orderId = 0;
+            using (var reader = new StreamReader(Environment.CurrentDirectory + @"/Data/OrderInfoData.csv")) //defining StreamReader
+            {
+                var csvFileLength = new System.IO.FileInfo(Environment.CurrentDirectory + @"/Data/OrderInfoData.csv").Length;
+
+                if (csvFileLength > -1)
+                {
+                    try
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            line = reader.ReadLine();
+                            counter++;
+                            line = counter + "," + line;
+                            var values = line.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                            orderId = Convert.ToInt32(values[0]);
+                        }
+                        return orderId++;
+                    }
+                    catch (FileNotFoundException e)
+                    {
+                        Console.WriteLine("Exception occured as the CSV file is empty" + ":" +  e);
+                    }
+                }
+
+                else
+                {
+                    orderId = 1;
+
+                }
+                return orderId;
+            }
+
+
+
         }
 
 
@@ -46,20 +88,12 @@ namespace OrderMgmtSystem.Helper
                 writer.Write(orderdetails.CustomerFirstName + "," + orderdetails.CustomerLastName + "," + orderdetails.AddressDetails + "," + orderdetails.ItemNumber + "," + orderdetails.ItemType + "," + orderdetails.PhoneNumber);
                 writer.Close();
 
-                
             }
         }
 
-
-        // Save
-
-
-
-        // Close
-
-
-
-        // return the required info i.c. OrderID
     }
+
 }
+
+
 

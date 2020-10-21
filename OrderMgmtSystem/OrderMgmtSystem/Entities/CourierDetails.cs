@@ -11,7 +11,7 @@ namespace OrderMgmtSystem.Entities
         public int ItemNumber { get; set; }
 
 
-        public CourierDetails(int _CourierID, string _CourierName, double _Price, string _VehicleType, int _ETA, int _ItemNumber)
+        /*public CourierDetails(int _CourierID, string _CourierName, double _Price, string _VehicleType, int _ETA, int _ItemNumber)
         {
             this.CourierID = _CourierID;
             this.CourierName = _CourierName;
@@ -20,6 +20,6 @@ namespace OrderMgmtSystem.Entities
             this.ETA = _ETA;
             this.ItemNumber = _ItemNumber;
 
-        }
+        }*/
     }
 }

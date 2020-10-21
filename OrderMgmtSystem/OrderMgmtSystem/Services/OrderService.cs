@@ -2,6 +2,7 @@
 using System.IO;
 using OrderMgmtSystem.Entities;
 using OrderMgmtSystem.Helper;
+using OrderMgmtSystem.Services;
 
 namespace OrderMgmtSystem.Services
 {
@@ -16,34 +17,29 @@ namespace OrderMgmtSystem.Services
 
         public int PlaceOrder(OrderDetails orderdetails)
         {
-
-            csvHelper.ReadFile();
-
-           // csvHelper.UpdateFile(orderdetails);
-
-         
-
-            return 12;
-
-            // return orderID
+            int orderId = CsvHelper.GetOrderId();
+            //csvHelper.ReadFile();
+            csvHelper.UpdateFile(orderdetails);
+            return orderId;
         }
-        public int ChooseCourier(OrderDetails orderdetails)
+
+
+        public string ChooseCourier(OrderDetails orderdetails)
         {
-            if(orderdetails.ItemType==OrderDetails.Type.Chilled)
-            {
-                // call to courier service
-            }
-            else if(orderdetails.ItemType == OrderDetails.Type.Frozen)
-            {
-                // call to courier service
-            }
-            else if(orderdetails.ItemType == OrderDetails.Type.Ambient)
-            {
-                // call to courier service
-            }
 
-            return 1;
+            if (orderdetails.ItemType == OrderDetails.Type.Chilled)
+            {
+                return "CourierOne";
+            }
+            else if (orderdetails.ItemType == OrderDetails.Type.Frozen)
+            {
+                return "CourierTwo";
+            }
+            else if (orderdetails.ItemType == OrderDetails.Type.Ambient)
+            {
+                return "CourierThree";
+            }
+            return "Undefined Type";
         }
-   
     }
 }

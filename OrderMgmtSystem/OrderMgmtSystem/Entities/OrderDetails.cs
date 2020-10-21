@@ -5,13 +5,14 @@ namespace OrderMgmtSystem.Entities
     {
         //private static object sync = new object();
         //private static int IdCount;
+        //public int OrderId { get; set; }
         public string CustomerFirstName { get; set; }
         public string CustomerLastName { get; set; }
         public string AddressDetails { get; set; }
         public int PhoneNumber { get; set; }
         public string ItemNumber { get; set; }
         public Type ItemType { get; set; }
-        public int OrderId { get; set; }
+      
 
         public enum Type
         {
