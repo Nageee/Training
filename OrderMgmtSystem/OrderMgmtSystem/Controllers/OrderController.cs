@@ -17,7 +17,7 @@ namespace OrderMgmtSystem.Controllers
         {
             int orderId = order.PlaceOrder(orderdetails);
             string courier= order.ChooseCourier(orderdetails);
-            return "Your order has been accepted by  " +  courier + " " + " and your order Id is :  " + orderId;
+            return "Your order has been accepted by  " +  courier                + " " + " and your order Id is :  " + orderId;
         }
 
     }

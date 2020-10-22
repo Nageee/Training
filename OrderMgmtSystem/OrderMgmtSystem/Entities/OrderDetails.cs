@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
 namespace OrderMgmtSystem.Entities
 {
     public class OrderDetails
@@ -6,14 +9,18 @@ namespace OrderMgmtSystem.Entities
         //private static object sync = new object();
         //private static int IdCount;
         //public int OrderId { get; set; }
+        [Required]
         public string CustomerFirstName { get; set; }
+
+
         public string CustomerLastName { get; set; }
         public string AddressDetails { get; set; }
         public int PhoneNumber { get; set; }
         public string ItemNumber { get; set; }
-        public Type ItemType { get; set; }
-      
 
+        public Type ItemType { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public enum Type
         {
             Chilled,
